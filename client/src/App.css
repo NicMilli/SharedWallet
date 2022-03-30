@@ -1,0 +1,172 @@
+.App {
+  text-align: center;
+  background-color: #63CAD8;
+}
+
+.App-logo {
+  height: 400px;
+  width: 400px;
+}
+
+.App-header {
+  background-color: #63CAD8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.price-btn {
+  background-color: #1937e4;
+  cursor: pointer; 
+  padding: 5px 10px;
+  color: white;
+  font-size: 15px;
+  border-radius: 44px;
+  border: 1px solid #2e2f33;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+.price-btn:hover {
+  background-color: #1937e4;
+  cursor: pointer; 
+  padding: 5px 10px;
+  color: white;
+  font-size: 20px;
+  border-radius: 44px;
+  border: 1px solid #2e2f33;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.addbalance-btn {
+  background-color: #3fb549;
+  cursor: pointer; 
+  padding: 5px 40px;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  border-radius: 44px;
+  border: 1px solid #0d0d0e;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+.addbalance-btn:hover {
+  background-color: #3fb549;
+  cursor: pointer; 
+  padding: 5px 40px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  border-radius: 44px;
+  border: 1px solid #0d0d0e;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.addallowance-btn {
+  background-color: #f0952e;
+  cursor: pointer; 
+  padding: 5px 70px;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  border-radius: 44px;
+  border: 1px solid #0f0f0f;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+.addallowance-btn:hover {
+  background-color: #f0952e;
+  cursor: pointer; 
+  padding: 5px 70px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  border-radius: 44px;
+  border: 1px solid #0f0f0f;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.pay-btn {
+  background-color: #f53a18;
+  cursor: pointer; 
+  padding: 5px 100px;
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  border-radius: 44px;
+  border: 1px solid #090a0a;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+.pay-btn:hover {
+  background-color: #f53a18;
+  cursor: pointer; 
+  padding: 5px 100px;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  border-radius: 44px;
+  border: 1px solid #090a0a;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.nrml-btn {
+  cursor: pointer; 
+}
+.nrml-btn:hover {
+  cursor: pointer; 
+  font-size: 15px;
+  border:3px solid #393939;
+}
+
+
+.btn {
+  background-color: #000000;
+  cursor: pointer; 
+  padding: 5px 20px;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  border: 1px solid #525353;
+  margin-bottom: 40px;
+}
+.btn:hover {
+  background-color: #000000;
+  cursor: pointer; 
+  padding: 5px 20px;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  border: 1px solid #525353;
+  margin-bottom: 40px;
+}
+
+#addFunds {
+  display: none;
+}
+
+#setAllow {
+  display: none;
+}
+
+#rsetAllow {
+  display: none;
+}
+
+#addFunds {
+  display: none;
+}
+
+#addFunds {
+  display: none;
+}
