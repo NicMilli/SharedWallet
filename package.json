@@ -5,5 +5,8 @@
     "@truffle/hdwallet-provider": "^2.0.4",
     "cron": "^1.8.2",
     "dotenv": "^16.0.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
