@@ -596,13 +596,14 @@ else {
     if (recurringAddress in timeout_map)
       {
         clearTimeout(timeout_map[recurringAddress]);
-        alert("The recurring allowance has been canceled for: "+recurringAddress)
+        alert("The upcoming recurring allowance has been canceled for: "+recurringAddress)
       }
 
       if (recurringAddress in interval_map)
       {
         clearInterval(interval_map[recurringAddress]);
-        alert("The recurring allowance has been canceled for: "+recurringAddress)
+        interval_map[recurringAddress].stop();
+        alert("The current recurring allowance has been canceled for: "+recurringAddress)
       }
     
    }
@@ -661,36 +662,49 @@ else {
       delay_map[recurringAddress] = delay; //need to modify so that the current delay (if exists) is overriden
       repeat_map[recurringAddress] = repeatSec[9]; //need to modify so that the current repeat (if exists) is overriden - originally tried: repeat_map[recurringAddress].push(repeatSec[9];
   
-      this.Month_reccur(recurringAddress);
+      this.Month_reccur(recurringAddress, Hour, Day, Minute, Interval);
      }
   
-      Month_reccur = async(user_address) => {
+      Month_reccur = async(user_address, H, D, Min, Int) => {
   
       timeout_map[user_address] = setTimeout(async() => { 
-       console.log(typeof(amount_map[user_address])); 
-    
-          this.Month_interval(user_address);
-          console.log(amount_map[user_address])
+
+        interval_map[user_address] = new CronJob(`${Min} ${H} ${D} */${Int} *`, async() => {
+          console.log('Allowance will reload evers '+Int+' months.');
           await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
           await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
+        }, null, true, 'America/New_York');
+        interval_map[user_address].start();
+    
+          //this.Month_interval(user_address);
+          //await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
+          //await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
+
       }, delay_map[user_address]*1000); //convert delay to milliseconds
   }
   
-      Month_interval = async(user_address) => {
-        interval_map[user_address] = setTimeout(async() => {
-          await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
-          await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
-          this.reset_Month_interval(user_address);
-        }, repeat_map[user_address]*1000);
-      }
+      //Month_interval = async(user_address) => {
+        //interval_map[user_address] = setTimeout(async() => {
 
-      reset_Month_interval = async(user_address) => {
+          
+            //await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
+            //await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
+        
 
-        alert("Interval cleared, resetting for new month")
-              var new_repeatSec = await this.SharedWallet.methods.getMap(user_address).call({from: this.accounts[0]});
-              repeat_map[user_address] = new_repeatSec[9]; 
-              this.Month_interval(user_address);
-      }
+          //await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
+          //await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
+
+          //this.reset_Month_interval(user_address);
+        //}, repeat_map[user_address]*1000);
+      //}
+
+      //reset_Month_interval = async(user_address) => {
+
+        //alert("Interval cleared, resetting for new month")
+              //var new_repeatSec = await this.SharedWallet.methods.getMap(user_address).call({from: this.accounts[0]});
+              //repeat_map[user_address] = new_repeatSec[9]; 
+              //this.Month_interval(user_address);
+      //}
 
    priceview = async() => {
     await this.priceSet();
