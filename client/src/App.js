@@ -651,13 +651,9 @@ else {
       this.rCancelSubmit();
       amount_map[recurringAddress] = recurringAmount.dp(0,4).toString();
       
-      console.log(amount_map[recurringAddress])
-      
       const delay = await this.SharedWallet.methods.diffSeconds(Year, Month, Day, Hour, Minute).call({from: this.accounts[0]}); //retrieves the number of seconds between current time and intended start time/date
       await this.SharedWallet.methods.setMonthly(recurringAddress, amount_map[recurringAddress], Interval, Day, Month, Year, Hour, Minute).send({from: this.accounts[0]}); //sets the allowance to update in solidity
       const repeatSec = await this.SharedWallet.methods.getMap(recurringAddress).call({from: this.accounts[0]}); //gets variables from map in solidity- [9] for seconds between repeated calls
-      //How do I vary this after each 'repeat' so that the number of days in each month is considered for monyhly calls (have the code to get number of days in next month in solidity so just need to vary the repeat based on that)
-      console.log(delay);
      
       delay_map[recurringAddress] = delay; //need to modify so that the current delay (if exists) is overriden
       repeat_map[recurringAddress] = repeatSec[9]; //need to modify so that the current repeat (if exists) is overriden - originally tried: repeat_map[recurringAddress].push(repeatSec[9];
