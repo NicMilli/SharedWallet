@@ -663,6 +663,7 @@ else {
       repeat_map[recurringAddress] = repeatSec[9]; //need to modify so that the current repeat (if exists) is overriden - originally tried: repeat_map[recurringAddress].push(repeatSec[9];
   
       this.Month_reccur(recurringAddress, Hour, Day, Minute, Interval);
+      alert('Allowance will reload every '+Interval+' months.');
      }
   
       Month_reccur = async(user_address, H, D, Min, Int) => {
@@ -670,7 +671,7 @@ else {
       timeout_map[user_address] = setTimeout(async() => { 
 
         interval_map[user_address] = new CronJob(`${Min} ${H} ${D} */${Int} *`, async() => {
-          console.log('Allowance will reload evers '+Int+' months.');
+          alert('Scheduled recurring allowance has started, and will reload every '+Int+' months.');
           await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
           await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
         }, null, true, 'America/New_York');
