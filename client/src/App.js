@@ -12,7 +12,7 @@ import { CoinGeckoClient } from 'coingecko-api-v3';
 import mylogo from './mylogo.png';
 const BigNumber = require('bignumber.js');
 
-//var cron = require('node-cron');
+var CronJob = require('cron').CronJob;
 //import styled from "styled-components";
 //import { Button } from 'react-native-elements';
 //import Icon from 'react-native-vector-icons/FontAwesome';
