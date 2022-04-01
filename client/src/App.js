@@ -774,7 +774,7 @@ else {
 
       <button name="addFunds" type="button" className= 'addbalance-btn' onClick={this.hideElement}>Add funds to wallet</button>
       <div id="addFunds" style={{
-        backgroundColor:'white'
+        backgroundColor: '#f5f5dc'
       }}>
         <h2>Send funds to contract using Metamask:</h2>
         Amount in Wei: <input type="text" name="addbalance" value={this.state.addbalance} onChange={this.BalanceChange} />
@@ -793,7 +793,7 @@ else {
 
       <button name="setAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}>Set a one-time allowance</button>
       <div id="setAllow" style={{
-        backgroundColor:'white'
+        backgroundColor: '#f5f5dc'
       }}>
         <h2>Set Allowance:</h2>
         Wallet Address: <input type="text" name="address" value={this.state.address} onChange={this.handleInputChange} />
@@ -812,7 +812,7 @@ else {
 
       <button name="rsetAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}>Set a recurring allowance</button>
       <div id="rsetAllow" style={{
-        backgroundColor:'white'
+        backgroundColor: '#f5f5dc'
       }}>
         <h2>Set Recurring Allowance:</h2>
         <p>The amount will be <strong>added</strong> to the user's allowance at every interval and transferred to their account <br></br> The recurrance can be set for a specified number of days or months (not both) and will trigger at every interval after the start date set</p>
