@@ -237,15 +237,15 @@ contract AllowanceStructure is Ownable {
             allowance[_user].j += 1;
         }
         else {
-            // uint nextT = addMonths(allowance[_user].initTime, allowance[_user].i*allowance[_user].j);
-            // uint EST = nextT - 5*sec_per_hour;
-            return(allowance[_user].j);
-            // require(EST <= block.timestamp+120, "It is too early to reload the allowance"); //+80 to allow for descrepencies caused by mining time
-            // allowance[_user]._allowance += _amount;
-            // allowance[_user].j += 1;
-            // (uint _year, uint _month, uint _day) = ts_to_MY(EST);
-            // uint daysinM = _getDaysInMonth(_year, _month);
-            // allowance[_user].repeatSec = daysinM*sec_per_day;
+            uint nextT = addMonths(allowance[_user].initTime, allowance[_user].i*allowance[_user].j);
+            uint EST = nextT - 5*sec_per_hour;
+            //return(allowance[_user].j);
+            require(EST <= block.timestamp+120, "It is too early to reload the allowance"); //+80 to allow for descrepencies caused by mining time
+            allowance[_user]._allowance += _amount;
+            allowance[_user].j += 1;
+            (uint _year, uint _month, uint _day) = ts_to_MY(EST);
+            uint daysinM = _getDaysInMonth(_year, _month);
+            allowance[_user].repeatSec = daysinM*sec_per_day;
         }
      }
 
