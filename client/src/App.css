@@ -3,6 +3,10 @@
   background-color: #63CAD8;
 }
 
+div span {
+  background-color: white;
+}
+
 .App-logo {
   height: 400px;
   width: 400px;
@@ -160,13 +164,5 @@
 }
 
 #rsetAllow {
-  display: none;
-}
-
-#addFunds {
-  display: none;
-}
-
-#addFunds {
   display: none;
 }
