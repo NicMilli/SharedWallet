@@ -772,7 +772,7 @@ else {
 <div style={{ borderTop: "2px solid #0f0f0f ", marginLeft: 500, marginRight: 500 }}></div>
 <br></br>
 
-      <button name="addFunds" type="button" className= 'addbalance-btn' onClick={this.hideElement}>Add funds to wallet</button>
+      <button name="addFunds" type="button" className= 'addbalance-btn' onClick={this.hideElement}><strong>Add funds to wallet</strong></button>
       <div id="addFunds" style={{
         backgroundColor: '#f5f5dc'
       }}>
@@ -791,7 +791,7 @@ else {
 <div style={{ borderTop: "2px solid #0f0f0f ", marginLeft: 500, marginRight: 500 }}></div>
       <br></br>
 
-      <button name="setAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}>Set a one-time allowance</button>
+      <button name="setAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}><strong>Set a one-time allowance</strong></button>
       <div id="setAllow" style={{
         backgroundColor: '#f5f5dc'
       }}>
@@ -810,7 +810,7 @@ else {
       <br></br>
 
 
-      <button name="rsetAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}>Set a recurring allowance</button>
+      <button name="rsetAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}><strong>Set a recurring allowance</strong></button>
       <div id="rsetAllow" style={{
         backgroundColor: '#f5f5dc'
       }}>
