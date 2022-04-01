@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/SharedWallet/precache-manifest.04404d10f3c7ff36c47f8deedf89fd4d.js"
+  "/SharedWallet/precache-manifest.47740d27283c2d5cf79d6570a267ab97.js"
 );
 
 self.addEventListener('message', (event) => {
