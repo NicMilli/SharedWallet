@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c7a7e8d8fcbf0a12440c27570a41103c",
+    "revision": "324cda19bc9967e7d8456136e4143e5e",
     "url": "/SharedWallet/index.html"
   },
   {
-    "revision": "41fd5c11e64835158a8c",
+    "revision": "963c071dc62c22b2d0b4",
     "url": "/SharedWallet/static/css/main.5ff65798.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/SharedWallet/static/js/2.f5dce6f9.chunk.js"
   },
   {
-    "revision": "41fd5c11e64835158a8c",
-    "url": "/SharedWallet/static/js/main.93f19461.chunk.js"
+    "revision": "963c071dc62c22b2d0b4",
+    "url": "/SharedWallet/static/js/main.ca7ab375.chunk.js"
   },
   {
     "revision": "e1d0d4d54190fa02e1c1",

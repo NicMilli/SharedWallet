@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/SharedWallet/static/css/main.5ff65798.chunk.css",
-    "main.js": "/SharedWallet/static/js/main.93f19461.chunk.js",
-    "main.js.map": "/SharedWallet/static/js/main.93f19461.chunk.js.map",
+    "main.js": "/SharedWallet/static/js/main.ca7ab375.chunk.js",
+    "main.js.map": "/SharedWallet/static/js/main.ca7ab375.chunk.js.map",
     "runtime-main.js": "/SharedWallet/static/js/runtime-main.9c159c29.js",
     "runtime-main.js.map": "/SharedWallet/static/js/runtime-main.9c159c29.js.map",
     "static/js/2.f5dce6f9.chunk.js": "/SharedWallet/static/js/2.f5dce6f9.chunk.js",
     "static/js/2.f5dce6f9.chunk.js.map": "/SharedWallet/static/js/2.f5dce6f9.chunk.js.map",
     "index.html": "/SharedWallet/index.html",
-    "precache-manifest.6a294a1ffa8d61775644369f4650aff9.js": "/SharedWallet/precache-manifest.6a294a1ffa8d61775644369f4650aff9.js",
+    "precache-manifest.04404d10f3c7ff36c47f8deedf89fd4d.js": "/SharedWallet/precache-manifest.04404d10f3c7ff36c47f8deedf89fd4d.js",
     "service-worker.js": "/SharedWallet/service-worker.js",
     "static/css/main.5ff65798.chunk.css.map": "/SharedWallet/static/css/main.5ff65798.chunk.css.map",
     "static/media/mylogo.png": "/SharedWallet/static/media/mylogo.b8d3a561.png"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.9c159c29.js",
     "static/js/2.f5dce6f9.chunk.js",
     "static/css/main.5ff65798.chunk.css",
-    "static/js/main.93f19461.chunk.js"
+    "static/js/main.ca7ab375.chunk.js"
   ]
 }
