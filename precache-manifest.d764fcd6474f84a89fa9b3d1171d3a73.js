@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6109ada060cd7818abf69750f26a264d",
+    "revision": "745fa803091951b9b283b594e3ac244f",
     "url": "/SharedWallet/index.html"
   },
   {
-    "revision": "c2104f3aaa5ff9e307d6",
-    "url": "/SharedWallet/static/css/main.520ab08c.chunk.css"
+    "revision": "948c054786cb7b0703fc",
+    "url": "/SharedWallet/static/css/main.a68ad25d.chunk.css"
   },
   {
     "revision": "c1d3ac01a6ec52c2ca18",
     "url": "/SharedWallet/static/js/2.f5dce6f9.chunk.js"
   },
   {
-    "revision": "c2104f3aaa5ff9e307d6",
-    "url": "/SharedWallet/static/js/main.5d6219c0.chunk.js"
+    "revision": "948c054786cb7b0703fc",
+    "url": "/SharedWallet/static/js/main.8a4ef467.chunk.js"
   },
   {
     "revision": "e1d0d4d54190fa02e1c1",
