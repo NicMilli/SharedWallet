@@ -153,12 +153,15 @@
 
 #addFunds {
   display: none;
+  background-color: #f5f5dc;
 }
 
 #setAllow {
   display: none;
+  background-color: #f5f5dc;
 }
 
 #rsetAllow {
   display: none;
+  background-color: #f5f5dc;
 }

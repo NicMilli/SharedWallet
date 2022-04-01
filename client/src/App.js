@@ -772,10 +772,8 @@ else {
 <div style={{ borderTop: "2px solid #0f0f0f ", marginLeft: 500, marginRight: 500 }}></div>
 <br></br>
 
-      <button name="addFunds" type="button" className= 'addbalance-btn' onClick={this.hideElement}><strong>Add funds to wallet</strong></button>
-      <div id="addFunds" style={{
-        backgroundColor: '#f5f5dc'
-      }}>
+      <button name="addFunds" type="button" className= 'addbalance-btn' onClick={this.hideElement}>Add funds to wallet</button>
+      <div id="addFunds" >
         <h2>Send funds to contract using Metamask:</h2>
         Amount in Wei: <input type="text" name="addbalance" value={this.state.addbalance} onChange={this.BalanceChange} />
         <br></br>
@@ -791,10 +789,8 @@ else {
 <div style={{ borderTop: "2px solid #0f0f0f ", marginLeft: 500, marginRight: 500 }}></div>
       <br></br>
 
-      <button name="setAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}><strong>Set a one-time allowance</strong></button>
-      <div id="setAllow" style={{
-        backgroundColor: '#f5f5dc'
-      }}>
+      <button name="setAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}>Set a one-time allowance</button>
+      <div id="setAllow" >
         <h2>Set Allowance:</h2>
         Wallet Address: <input type="text" name="address" value={this.state.address} onChange={this.handleInputChange} />
         <br></br>
@@ -810,10 +806,8 @@ else {
       <br></br>
 
 
-      <button name="rsetAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}><strong>Set a recurring allowance</strong></button>
-      <div id="rsetAllow" style={{
-        backgroundColor: '#f5f5dc'
-      }}>
+      <button name="rsetAllow" type="button" className= 'addallowance-btn' onClick={this.hideElement}>Set a recurring allowance</button>
+      <div id="rsetAllow" >
         <h2>Set Recurring Allowance:</h2>
         <p>The amount will be <strong>added</strong> to the user's allowance at every interval and transferred to their account <br></br> The recurrance can be set for a specified number of days or months (not both) and will trigger at every interval after the start date set</p>
         Wallet Address: <input type="text" name="recurringAddress" value={this.state.recurringAddress} onChange={this.handleInputChange} />
