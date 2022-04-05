@@ -743,7 +743,7 @@ else {
    
   render() {
     if (!this.state.loaded) {
-      return <div>Loading Web3, accounts, and contract...</div>;
+      return <div>Loading Web3, accounts, and contract... Please connect to Ropsten testnet using Metamask!</div>;
     }
         
     return (
