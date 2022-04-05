@@ -1,6 +1,6 @@
 pragma solidity 0.8.9;
-import "@openzeppelin/contracts/access/Ownable.sol";
 
+import "@openzeppelin/contracts/access/Ownable.sol";
 contract AllowanceStructure is Ownable {
 
     event AllowanceChange(address indexed _forUser, address indexed _ChangedBy, uint _newAllowance, uint _oldAllowance ,int _difference);
@@ -225,7 +225,7 @@ contract AllowanceStructure is Ownable {
         allowance[_user]._allowance -= _amount;
     }
 
-    function ReloadAllowance(address _user, uint _amount) public returns(uint) {
+    function ReloadAllowance(address _user, uint _amount) public {
         require(allowance[_user].recurrance == true && allowance[_user].isDeleted == false , "recurring allowance is not active");
         require(allowance[_user]._reloadAmount >= _amount, "You are trying to reload an amount greater than that set by the owner");
 
