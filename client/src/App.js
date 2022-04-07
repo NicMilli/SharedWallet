@@ -3,20 +3,18 @@ import AllowanceStructuringContract from "./contracts/AllowanceStructure.json";
 import SharedWalletContract from "./contracts/SharedWallet.json";
 import getWeb3 from "./getWeb3";
 import "./App.css";
-//import axios from 'axios'
 import { CoinGeckoClient } from 'coingecko-api-v3';
-//import ReactDOM from 'react-dom'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faEthereum } from '@fortawesome/free-brands-svg-icons';
 //import { faCoins, faUsers, faCommentDollar, faPeopleArrows, faUserTie, faUsersSlash } from '@fortawesome/free-solid-svg-icons';
 import mylogo from './mylogo.png';
+import extension1 from './extension1.png';
+import extension2 from './extension2.png';
+
 const BigNumber = require('bignumber.js');
 
 var CronJob = require('cron').CronJob;
-//import styled from "styled-components";
-//import { Button } from 'react-native-elements';
-//import Icon from 'react-native-vector-icons/FontAwesome';
-//https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd
+
 const client = new CoinGeckoClient({
   timeout: 1000,
   autoRetry: true,
@@ -26,16 +24,6 @@ var repeat_map = [];
 var timeout_map = [];
 var interval_map = [];
 var amount_map = [];
-// var rInterval_map = {};
-//Goals: all currencies update in state when 1 is changed
-//Doesnt break after usd called
-
-//console.log(client.simplePrice({vs_currencies:'usd', ids: 'ethereum'}).then(
- // this.state(price)));
-  //console.log(res.data);
-
-//const trendingSearch = await client.trendingSearch();
-//client.simplePriceId()
 
 const toETH = 10**(18);
 const BNtoETH = new BigNumber(toETH);
@@ -84,22 +72,6 @@ class App extends Component {
       console.error(error);
     }
   };
-
-  //
-  //loadcoins = async() => {
-   // const [setCoins] = useState([]);
-//  
-  //  const loadData = async () => {
-    //  const cryptosResponse = await fetch('https://api.coingecko.com/api/v3/coins/ethereum');
-      //console.log(cryptosResponse)
-//      const cryptos = await cryptosResponse.json();
-  //    setCoins(cryptos);
-    //}
-//    console.log(loadData);
-  //  const price = loadData[1];
-    //console.log(price);
-
-  //};
   
   priceSet = async() => {
     let latest = await client.simplePrice({vs_currencies:'usd', ids: 'ethereum'});
@@ -743,7 +715,15 @@ else {
    
   render() {
     if (!this.state.loaded) {
-      return <div>Loading Web3, accounts, and contract... Please connect to Ropsten testnet using Metamask!</div>;
+      return <div className="App">Loading Web3, accounts, and contract...<br></br>
+        <h2>In order to buy coins, please install the metamask plugin on chrome or firefox and connect to the Ropsten test network.</h2> <br></br>
+        <a href="https://metamask.io/download/">Download Metamask Extension For Your Browser!</a><br></br>
+        You may need to show test networks in settings, advanced, show test networks.<br></br><br></br>Find and pin the Metamask extension in your browser<br></br>
+        <img src={extension1} alt="Instructions"></img><br></br>then, select the Ropsten test network<br></br>
+        <img src={extension2} alt="Instructions"></img><br></br>
+        <br></br>You can then select 'buy' and request FREE test Ether from the test faucet.<br></br><br></br>
+        <h2>Please refresh the page once connected</h2>
+      </div>;
     }
         
     return (
