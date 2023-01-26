@@ -29,9 +29,9 @@ const toETH = 10**(18);
 const BNtoETH = new BigNumber(toETH);
 
 class App extends Component {
-  state = { price:4000, loaded:false, amount:"0",  usdamount:0, Eamount:0, address:"0x...", 
-  pay_amount:0, Epay_amount:0, USDpay_amount:0, pay_address:"0x...", addbalance:0, Eaddbalance:0, newAddress:"0x...", 
-  view_address:"0x...", usd:'0', Day:0, Month:0, Year:2021, Hour:0, 
+  state = { price:4000, loaded:false, amount:"0",  usdamount:0, Eamount:0, address:"0x...",
+  pay_amount:0, Epay_amount:0, USDpay_amount:0, pay_address:"0x...", addbalance:0, Eaddbalance:0, newAddress:"0x...",
+  view_address:"0x...", usd:'0', Day:0, Month:0, Year:2021, Hour:0,
   Minute:0, Interval:0, recurringAddress:"0x...", recurringAmount:0, rusdamount:0, rEamount:0,};
 
   componentDidMount = async () => {
@@ -43,7 +43,7 @@ class App extends Component {
 
       // Get the contract instance.
       this.networkId = await this.web3.eth.net.getId();
-      
+
       this.AllowanceStructuring = new this.web3.eth.Contract(
         AllowanceStructuringContract.abi,
         AllowanceStructuringContract.networks[this.networkId] && AllowanceStructuringContract.networks[this.networkId].address,
@@ -63,7 +63,7 @@ class App extends Component {
       this.listenToAllowance();
       this.listenToNewOwner();
       this.setState({ loaded:true, price: this.priceSet() });
-      
+
     } catch (error) {
       // Catch any errors for any of the above operations.
       alert(
@@ -72,7 +72,7 @@ class App extends Component {
       console.error(error);
     }
   };
-  
+
   priceSet = async() => {
     let latest = await client.simplePrice({vs_currencies:'usd', ids: 'ethereum'});
     var BNprice = new BigNumber(latest.ethereum.usd);
@@ -142,7 +142,7 @@ class App extends Component {
     if (val[0] === '0' && val[1]!=='.') {
       len = len-1;
     }
-    
+
     if (len === lenBN){
       return false;
     }
@@ -150,9 +150,9 @@ class App extends Component {
       return true;
     }
    }
-  
+
   decimalHelper = (name, _value) =>{
- 
+
           this.setState({
             [name]: _value
           })
@@ -164,12 +164,12 @@ class App extends Component {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     var BNvalue = BigNumber(value);
-    
+
   if (target.name === "usd") {
         if(this.preDecimal(value)){
          this.decimalHelper(target.name, value);
         }
-        
+
         else if (BNvalue.isNaN()){
           BNvalue = new BigNumber(0);
         this.setState({
@@ -188,13 +188,13 @@ class App extends Component {
           })
         }
       }
-    
+
 
   else if (target.name === "Eaddbalance") {
         if(this.preDecimal(value)){
           this.decimalHelper(target.name, value);
         }
-        
+
         else if (BNvalue.isNaN()){
           BNvalue = new BigNumber(0);
         this.setState({
@@ -217,7 +217,7 @@ class App extends Component {
         if(this.preDecimal(value)){
           this.decimalHelper(target.name, value);
         }
-        
+
         else if (BNvalue.isNaN()){
           BNvalue = new BigNumber(0);
           this.setState({
@@ -248,7 +248,7 @@ class App extends Component {
       if(this.preDecimal(value)){
        this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -266,13 +266,13 @@ class App extends Component {
         })
       }
     }
-  
+
 
 else if (target.name === "Eamount") {
       if(this.preDecimal(value)){
         this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -295,7 +295,7 @@ else {
       if(this.preDecimal(value)){
         this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -326,7 +326,7 @@ else {
       if(this.preDecimal(value)){
        this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -337,20 +337,20 @@ else {
       else if (this.precisionLoss(value, BNvalue)){
         this.decimalHelper(target.name, value);
        }
-    
+
       else {
         this.setState({
           rusdamount: BNvalue, rEamount: BNvalue.div(price), recurringAmount: (BNvalue.div(price)).times(BNtoETH)
-        })    
+        })
       }
     }
-  
+
 
     else if (target.name === "rEamount") {
       if(this.preDecimal(value)){
         this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -373,7 +373,7 @@ else {
       if(this.preDecimal(value)){
         this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -404,7 +404,7 @@ else {
       if(this.preDecimal(value)){
        this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -419,16 +419,16 @@ else {
       else {
         this.setState({
           USDpay_amount: BNvalue, Epay_amount: BNvalue.div(price), pay_amount: (BNvalue.div(price)).times(BNtoETH)
-        }) 
+        })
       }
     }
-  
+
 
     else if (target.name === "Epay_amount") {
       if(this.preDecimal(value)){
         this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -451,7 +451,7 @@ else {
       if(this.preDecimal(value)){
         this.decimalHelper(target.name, value);
       }
-      
+
       else if (BNvalue.isNaN()){
         BNvalue = new BigNumber(0);
         this.setState({
@@ -486,7 +486,7 @@ else {
 
   rViewAllowanceSub = async() => {
     const {view_address} = this.state;
-    //const {sYear, sMonth, sDay, sHour, sMinute, Int, period, reloadAmount} 
+    //const {sYear, sMonth, sDay, sHour, sMinute, Int, period, reloadAmount}
     const result = await this.SharedWallet.methods.getMap(view_address).call({from: this.accounts[0]});
     var sec = 1;
     var min = 1;
@@ -564,7 +564,7 @@ else {
    rCancelSubmit = async() => {
     const {recurringAddress} = this.state;
     await this.SharedWallet.methods.stopReload(recurringAddress).send({from: this.accounts[0]});
-    
+
     if (recurringAddress in timeout_map)
       {
         clearTimeout(timeout_map[recurringAddress]);
@@ -577,22 +577,22 @@ else {
         interval_map[recurringAddress].stop();
         alert("The current recurring allowance has been canceled for: "+recurringAddress)
       }
-    
+
    }
 
    DaySubmit = async() => {
     const {Day, Month, Year, Hour, Minute, Interval, recurringAddress, recurringAmount} = this.state;
     this.rCancelSubmit();
     amount_map[recurringAddress] = recurringAmount.dp(0,4).toString();
-    
+
     console.log(amount_map[recurringAddress])
-    
+
     const delay = await this.SharedWallet.methods.diffSeconds(Year, Month, Day, Hour, Minute).call({from: this.accounts[0]}); //retrieves the number of seconds between current time and intended start time/date
     await this.SharedWallet.methods.setDaily(recurringAddress, amount_map[recurringAddress], Interval, Day, Month, Year, Hour, Minute).send({from: this.accounts[0]}); //sets the allowance to update in solidity
     const repeatSec = await this.SharedWallet.methods.getMap(recurringAddress).call({from: this.accounts[0]}); //gets variables from map in solidity- [9] for seconds between repeated calls
     //How do I vary this after each 'repeat' so that the number of days in each month is considered for monyhly calls (have the code to get number of days in next month in solidity so just need to vary the repeat based on that)
     console.log(delay);
-    
+
     delay_map[recurringAddress] = delay; //need to modify so that the current delay (if exists) is overriden
     repeat_map[recurringAddress] = repeatSec[9]; //need to modify so that the current repeat (if exists) is overriden - originally tried: repeat_map[recurringAddress].push(repeatSec[9];
 
@@ -601,9 +601,9 @@ else {
 
     Day_reccur = async(user_address) => {
 
-    timeout_map[user_address] = setTimeout(async() => { 
-     console.log(typeof(amount_map[user_address])); 
-  
+    timeout_map[user_address] = setTimeout(async() => {
+     console.log(typeof(amount_map[user_address]));
+
         this.Day_interval(user_address);
         console.log(amount_map[user_address])
         await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
@@ -622,21 +622,21 @@ else {
       const {Day, Month, Year, Hour, Minute, Interval, recurringAddress, recurringAmount} = this.state;
       this.rCancelSubmit();
       amount_map[recurringAddress] = recurringAmount.dp(0,4).toString();
-      
+
       const delay = await this.SharedWallet.methods.diffSeconds(Year, Month, Day, Hour, Minute).call({from: this.accounts[0]}); //retrieves the number of seconds between current time and intended start time/date
       await this.SharedWallet.methods.setMonthly(recurringAddress, amount_map[recurringAddress], Interval, Day, Month, Year, Hour, Minute).send({from: this.accounts[0]}); //sets the allowance to update in solidity
       const repeatSec = await this.SharedWallet.methods.getMap(recurringAddress).call({from: this.accounts[0]}); //gets variables from map in solidity- [9] for seconds between repeated calls
-     
+
       delay_map[recurringAddress] = delay; //need to modify so that the current delay (if exists) is overriden
       repeat_map[recurringAddress] = repeatSec[9]; //need to modify so that the current repeat (if exists) is overriden - originally tried: repeat_map[recurringAddress].push(repeatSec[9];
-  
+
       this.Month_reccur(recurringAddress, Hour, Day, Minute, Interval);
       alert('Allowance will reload every '+Interval+' months.');
      }
-  
+
       Month_reccur = async(user_address, H, D, Min, Int) => {
-  
-      timeout_map[user_address] = setTimeout(async() => { 
+
+      timeout_map[user_address] = setTimeout(async() => {
 
         interval_map[user_address] = new CronJob(`${Min} ${H} ${D} */${Int} *`, async() => {
           alert('Scheduled recurring allowance has started, and will reload every '+Int+' months.');
@@ -644,21 +644,21 @@ else {
           await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
         }, null, true, 'America/New_York');
         interval_map[user_address].start();
-    
+
           //this.Month_interval(user_address);
           //await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
           //await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
 
       }, delay_map[user_address]*1000); //convert delay to milliseconds
   }
-  
+
       //Month_interval = async(user_address) => {
         //interval_map[user_address] = setTimeout(async() => {
 
-          
+
             //await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
             //await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
-        
+
 
           //await this.SharedWallet.methods.ReloadAllowance(user_address, amount_map[user_address]).send({from: this.accounts[0]});
           //await this.SharedWallet.methods.PayOut(user_address, amount_map[user_address]).send({from: this.accounts[0]});
@@ -671,7 +671,7 @@ else {
 
         //alert("Interval cleared, resetting for new month")
               //var new_repeatSec = await this.SharedWallet.methods.getMap(user_address).call({from: this.accounts[0]});
-              //repeat_map[user_address] = new_repeatSec[9]; 
+              //repeat_map[user_address] = new_repeatSec[9];
               //this.Month_interval(user_address);
       //}
 
@@ -692,7 +692,7 @@ else {
 
 
    hideElement = (event) => {
-    const target = event.target.name; 
+    const target = event.target.name;
     //var x = target;
     var x = document.getElementById(target);
     if (x.style.display === 'none') {
@@ -712,20 +712,20 @@ else {
    //<FontAwesomeIcon icon={faUsersSlash} /> 785
    //<FontAwesomeIcon icon={faCommentDollar} /> 793
    //<FontAwesomeIcon icon={faPeopleArrows} /> 798
-   
+
   render() {
     if (!this.state.loaded) {
       return <div className="App">Loading Web3, accounts, and contract...<br></br>
-        <h2>In order to buy coins, please install the metamask plugin on chrome or firefox and connect to the Ropsten test network.</h2> <br></br>
+        <h2>In order to buy coins, please install the metamask plugin on chrome or firefox and connect to the Goerli test network.</h2> <br></br>
         <a href="https://metamask.io/download/">Download Metamask Extension For Your Browser!</a><br></br>
         You may need to show test networks in settings, advanced, show test networks.<br></br><br></br>Find and pin the Metamask extension in your browser<br></br>
-        <img src={extension1} alt="Instructions"></img><br></br>then, select the Ropsten test network<br></br>
+        <img src={extension1} alt="Instructions"></img><br></br>then, select the Goerli test network<br></br>
         <img src={extension2} alt="Instructions"></img><br></br>
         <br></br>You can then select 'buy' and request FREE test Ether from the test faucet.<br></br><br></br>
         <h2>Please refresh the page once connected</h2>
       </div>;
     }
-        
+
     return (
       <div className="App">
         <header className='App-header' ><img className='App-logo' src={mylogo} alt="logo"/></header>
@@ -735,9 +735,9 @@ else {
         <p>Amounts are in Wei for highest accuracy. 1 Wei is 1x10<sup>-18</sup> Ether.
         <br></br>Timezone is set to EST.</p>
         <h2>Check current Ethereum price in USD</h2>
-        
+
         <button type="button" className='price-btn' onClick={this.priceview}><strong>Ethereum Price</strong></button>
-        
+
         <h2>View Contract Owner:</h2>
         <button type="button" className='nrml-btn' onClick={this.OwnerSubmit}>View Owner Address</button>
 
@@ -826,7 +826,7 @@ else {
         Amount in USD: <input type="text" name="USDpay_amount" value={this.state.USDpay_amount} onChange={this.PayChange} />
         <br></br>
         <button type="button" className='pay-btn' onClick={this.payoutSubmit}><strong>Pay user </strong></button>
-        
+
         <h2>Transfer Contract Ownership</h2>
         New Owner Address: <input type="text" name="newAddress" value={this.state.newAddress} onChange={this.handleInputChange} />
         <button type="button" className='btn' onClick={this.OwnChangeSubmit}>Transfer Ownership </button>
